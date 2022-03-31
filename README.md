@@ -1,14 +1,22 @@
 # Project Tracker
 
+#### Table of Content 
+[ERD] (#ERD)
+
 ## About
 The intend of this project is to effectly track project. 
 
+## User Stories 
 
+<a href="ERD" />
 ## ERD
 ![Alt text](/ImageFile/ERD.png "ERD")
 
 ## WireFrame 
 ![Alt text](/ImageFile/WireFrame.png "Wire Frame")
+
+## Technology Used 
+
 
 
 1. Project Management app 
