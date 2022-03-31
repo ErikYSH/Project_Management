@@ -1,7 +1,7 @@
 # Project Tracker
 
-#### Table of Content 
-[ERD] (#ERD)
+* Table of Content 
+    * [ERD](#ERD)
 
 ## About
 The intend of this project is to effectly track project. 
