@@ -8,7 +8,7 @@ The intend of this project is to effectly track project.
 
 ## User Stories 
 
-<a href="ERD" />
+## <a id="ERD"></a>ERD ##
 ## ERD
 ![Alt text](/ImageFile/ERD.png "ERD")
 
