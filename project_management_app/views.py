@@ -1,10 +1,14 @@
-from pipes import Template
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Project
+from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.views import View
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 # Create your views here.
 
@@ -32,6 +36,13 @@ class Project_Create(CreateView):
     template_name = "project_create.html"
     success_url = '/projects'
 
+    def form_valid(self,form):
+        self.object = form.save(commit=False)
+        self.object.user = self.request.user
+        self.object.save()
+        return HttpResponseRedirect('/projects')
+        
+
 class Project_Update(UpdateView):
     model = Project
     fields = ['name', 'description', 'start_date', 'end_date' ,'status',]
@@ -42,3 +53,10 @@ class Project_Delete(DeleteView):
     model = Project
     template_name = 'project_delete.html'
     success_url = '/projects'
+
+def profile(request, username):
+    user = User.objects.get(username=username)
+    projects = Project.filter(user=user)
+    return render(request, "profile.html", {"username":username, "projects":projects})
+
+
