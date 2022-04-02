@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div>
+        <h1> {{project}} Page </h1>
+    </div>
+    <div>
+        <h2>{{project}}</h2>
+        <h2>{{project.description}}</h2>
+        <h2>{{project.start_date}}</h2>
+        <h2>{{project.end_date}}</h2>
+        <h2>{{project.status}}</h2>
+    </div>
+    <div>
+        <button>
+            <a href="{% url 'project_update' project.id %}">Edit</a>
+        </button>
+        <button>
+            <a href="{% url 'project_delete' project.id %}">Delete</a>
+        </button>
+    </div>
+</div>
+
+{% endblock %}

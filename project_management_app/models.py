@@ -17,3 +17,10 @@ class Project(models.Model):
     end_date = models.DateField(auto_now_add=False, auto_now=False, blank=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    create_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+    
+    class Meta: 
+        ordering = ['create_at']

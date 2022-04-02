@@ -28,7 +28,7 @@ def project_show(request, project_id):
 
 class Project_Create(CreateView):
     model = Project
-    fields = ['name', 'description', 'start_date', 'end_date' ,'status',]
+    fields = ['name', 'description', 'start_date', 'end_date' ,'status','user']
     template_name = "project_create.html"
     success_url = '/projects'
 
