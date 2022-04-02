@@ -5,6 +5,11 @@
 
 ## About
 The intend of this project is to effectly track project. 
+1. Project Management app 
+- Main user create the app 
+- Project has tasks 
+- task has categories
+
 
 ## User Stories (As a User)
 ##### Login/ Signup
@@ -19,7 +24,7 @@ The intend of this project is to effectly track project.
 * AAU, I want to set start & end date
 * AAU, I want to assign to employees
 * AAU, I want to select from a drop down of current status of the project
-##### Assign Page
+##### Team Page
 * AAU, I would input their name, title, email
 ##### Status page
 * AAU, I want to set status name
@@ -28,16 +33,14 @@ The intend of this project is to effectly track project.
 ![Alt text](/ImageFile/ERD.png "ERD")
 
 ## WireFrame 
-![Alt text](/ImageFile/WireFrame.png "Wire Frame")
+![Alt text](/ImageFile/WireFrame_1.png "Wire Frame_1")
+![Alt text](/ImageFile/WireFrame_2.png "Wire Frame_1")
 
 ## Technology Used 
 
 
 
-1. Project Management app 
-- Main user create the app 
-- Project has tasks 
-- task has categories
+
 
 ## Future Enhancement  
 
