@@ -1,6 +1,6 @@
 # Project Tracker
 
-## Table of Content 
+## Table of Content (TBD)
     * [ERD](#ERD)
 
 ## About
@@ -27,20 +27,25 @@ The intend of this project is to effectly track project.
 ##### Team Page
 * AAU, I would input their name, title, email
 ##### Status page
-* AAU, I want to set status name
+* AAU, I want to set status on the project
 
 ## <a id="ERD"></a>ERD ##
 ![Alt text](/ImageFile/ERD.png "ERD")
 
 ## WireFrame 
 ![Alt text](/ImageFile/WireFrame_1.png "Wire Frame_1")
-![Alt text](/ImageFile/WireFrame_2.png "Wire Frame_1")
+![Alt text](/ImageFile/WireFrame_2.png "Wire Frame_2")
+![Alt text](/ImageFile/WireFrame_3.png "Wire Frame_3")
 
 ## Technology Used 
-
+Python| Django| JavaScript | HTML | PostgreSQL | ... |
 
 
 
 
 ## Future Enhancement  
-
+* Graphical data
+* Data chart
+* Add notes
+* Drag orders
+* Edit on the grid
