@@ -27,6 +27,7 @@ class Project(models.Model):
     end_date = models.DateField(auto_now_add=False, auto_now=False, blank=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    team = models.ManyToManyField(Team)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
