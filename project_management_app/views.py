@@ -12,8 +12,11 @@ from django.utils.decorators import method_decorator
 
 # Create your views here.
 
+class Home(TemplateView):
+    template_name = 'home.html'
+
 class Dashboard(TemplateView):
-    template_name = 'dashboard.html'
+    template_name ='dashboard.html'
 
 class Project_Index(TemplateView):
     template_name = 'project_index.html'
@@ -56,7 +59,47 @@ class Project_Delete(DeleteView):
 
 def profile(request, username):
     user = User.objects.get(username=username)
-    projects = Project.filter(user=user)
+    projects = Project.objects.filter(user=user)
     return render(request, "profile.html", {"username":username, "projects":projects})
 
 
+def login_view(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, request.POST)
+        if form.is_valid():
+            u = form.cleaned_data['username']  
+            p = form.cleaned_data['password'] 
+            user = authenticate(username = u, password = p)
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    return HttpResponseRedirect('/dashboard')
+                else:
+                    print('The account has been disabled')
+                    return HttpResponseRedirect('/login')
+        else:
+            print('The username and/or password is incorrect')
+            return HttpResponseRedirect('/login')
+    else:
+        form = AuthenticationForm()
+        return render(request, 'login.html', {'form': form})
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect('/')
+
+
+def signup_view(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            print('HEY', user.username)
+            return HttpResponseRedirect('/user/'+str(user))
+        else:
+            return render(request, 'signup.html', {'form': form})
+
+    else:
+        form = UserCreationForm()
+        return render(request, 'signup.html', {'form': form})
