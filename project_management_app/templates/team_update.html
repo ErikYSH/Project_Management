@@ -3,14 +3,14 @@
 {% block content %}
 <div class="container">
     <div>
-        <h1> Update Project Page </h1>
+        <h1> Update Team Page </h1>
     </div>
     <div>
         <form action="" method="post">
             {% csrf_token %}
             {{form.as_p}}
-            <button type="submit">Update Project</button>
-            <button><a href="{% url 'project_show' project.id %}">Cancel</a></button>
+            <button type="submit">Update Team Member</button>
+            <button><a href="{% url 'team_show' team.id %}">Cancel</a></button>
         </form>
     </div>
 </div>

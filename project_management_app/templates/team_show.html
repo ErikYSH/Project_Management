@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div>
+        <h1> {{team}} Page </h1>
+    </div>
+    <div>
+        <h2>{{team.name}}</h2>
+        <h2>{{team.email}}</h2>
+        <h2>{{team.title}}</h2>
+    </div>
+    <div>
+        <button>
+            <a href="{% url 'team_update' team.id %}">Edit</a>
+        </button>
+        <button>
+            <a href="{% url 'team_delete' team.id %}">Delete</a>
+        </button>
+    </div>
+</div>
+
+{% endblock %}

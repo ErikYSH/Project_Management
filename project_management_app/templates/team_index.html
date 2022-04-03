@@ -9,7 +9,7 @@
     <div>
         {% for team in teams %}
         <div>
-            <h3>{{team.name}}</h3>
+            <h2><a href="{% url 'team_show' team.id %}">{{team.name}}</a></h2>
             <h3>{{team.email}}</h3>
             <h3>{{team.title}}</h3>
         </div>

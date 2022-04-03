@@ -18,7 +18,7 @@ urlpatterns = [
     path('/signup', views.signup_view, name="signup"),
 
     path('teams/', views.Team_Index.as_view(), name="team_index"),
-    # path('teams/<int:team.id>', views.team_show, name="team_index"),
+    path('teams/<int:team_id>', views.team_show, name="team_show"),
     path('teams/create', views.Team_Create.as_view(), name="team_create"),
     path('teams/<int:pk>/update/', views.Team_Update.as_view(), name="team_update"),
     path('teams/<int:pk>/delete/', views.Team_Delete.as_view(), name="team_delete"),
