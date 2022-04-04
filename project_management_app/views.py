@@ -9,13 +9,15 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.contrib import messages
 
 # Create your views here.
 
+#### HOME PAGE FUNCTION
 class Home(TemplateView):
     template_name = 'home.html'
 
-# PROJECT FUNCTION
+#### PROJECT FUNCTION
 class Dashboard(TemplateView):
     template_name ='dashboard.html'
 
@@ -25,7 +27,7 @@ class Project_Index(TemplateView):
         context = super().get_context_data(**kwargs)
         name = self.request.GET.get('name')
         if name != None: 
-            context['projects'] = Project.objects.filter(name_icontains=name) 
+            context['projects'] = Project.objects.filter(name__icontains=name) 
         else: 
             context['projects'] = Project.objects.all
         return context
@@ -36,7 +38,7 @@ def project_show(request, project_id):
 
 class Project_Create(CreateView):
     model = Project
-    fields = ['name', 'description', 'start_date', 'end_date' ,'status','user']
+    fields = ['name', 'description', 'start_date', 'end_date' ,'status','user','team']
     template_name = "project_create.html"
     success_url = '/projects'
 
@@ -48,7 +50,7 @@ class Project_Create(CreateView):
         
 class Project_Update(UpdateView):
     model = Project
-    fields = ['name', 'description', 'start_date', 'end_date' ,'status',]
+    fields = ['name', 'description', 'start_date', 'end_date' ,'status','team']
     template_name = 'project_update.html'
     success_url = '/projects'
 
@@ -57,13 +59,14 @@ class Project_Delete(DeleteView):
     template_name = 'project_delete.html'
     success_url = '/projects'
 
-# PROFILE
+#### PROFILE
+@login_required
 def profile(request, username):
     user = User.objects.get(username=username)
     projects = Project.objects.filter(user=user)
     return render(request, "profile.html", {"username":username, "projects":projects})
 
-# AUTHENTICATION
+#### AUTHENTICATION
 def login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, request.POST)
@@ -79,7 +82,7 @@ def login_view(request):
                     print('The account has been disabled')
                     return HttpResponseRedirect('/login')
         else:
-            print('The username and/or password is incorrect')
+            messages.success(request, 'The username and/or password is incorrect')
             return HttpResponseRedirect('/login')
     else:
         form = AuthenticationForm()
@@ -88,7 +91,6 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect('/')
-
 
 def signup_view(request):
     if request.method == 'POST':
@@ -106,7 +108,7 @@ def signup_view(request):
         return render(request, 'signup.html', {'form': form})
 
 
-# TEAM FUNCTION
+#### TEAM FUNCTION
 class Team_Index(TemplateView):
     template_name = 'team_index.html'
     def get_context_data(self, **kwargs):

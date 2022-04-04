@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
+<div class="container ms-3">
     <div>
         <h1> {{team}} Page </h1>
     </div>
@@ -9,6 +9,9 @@
         <h2>{{team.name}}</h2>
         <h2>{{team.email}}</h2>
         <h2>{{team.title}}</h2>
+        {% for project in team.project_set.all %}
+            <h2>{{ project.name }}</h2>
+        {% endfor %}
     </div>
     <div>
         <button>

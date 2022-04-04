@@ -13,9 +13,9 @@ urlpatterns = [
 
     path('user/<username>', views.profile, name="profile"),
 
-    path('/login', views.login_view, name="login"),
-    path('/logout', views.logout_view, name="logout"),
-    path('/signup', views.signup_view, name="signup"),
+    path('login/', views.login_view, name="login"),
+    path('logout/', views.logout_view, name="logout"),
+    path('signup/', views.signup_view, name="signup"),
 
     path('teams/', views.Team_Index.as_view(), name="team_index"),
     path('teams/<int:team_id>', views.team_show, name="team_show"),

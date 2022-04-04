@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
+<div class="container ms-3">
     <div>
         <h1> {{project}} Page </h1>
     </div>
@@ -11,6 +11,9 @@
         <h2>{{project.start_date}}</h2>
         <h2>{{project.end_date}}</h2>
         <h2>{{project.status}}</h2>
+        {% for team in project.team.all %}
+            <h2>{{team.name}}</h2>
+        {% endfor %}
     </div>
     <div>
         <button>
