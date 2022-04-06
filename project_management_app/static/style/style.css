@@ -53,3 +53,7 @@
     margin: 20px;
     width: 100%;
 }
+
+.login_page {
+    border: 5px solid black;
+}
