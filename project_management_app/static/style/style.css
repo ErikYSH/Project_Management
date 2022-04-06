@@ -5,6 +5,7 @@
     list-style: none;
     text-decoration: none;
     font-family: 'Josefin Sans', sans-serif;
+
 }
 
 
@@ -41,7 +42,9 @@
 
 .main_content {
     width: 100%;
+    height: 100vh;
     margin-left: 200px;
+    background-color: aquamarine;
 }
 
 .main_content .header{
@@ -55,5 +58,17 @@
 }
 
 .login_page {
-    border: 5px solid black;
+    /* border: 5px solid black; */
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    max-width: 200vh;
+    height: 80vh;
+}
+.container{
+    border: 3px solid red;
 }

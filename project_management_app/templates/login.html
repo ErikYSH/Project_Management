@@ -1,18 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container ">
+<div class="container login ms-3 justify-content-center" >
     <div class="login_page">
-        <h1> Login </h1>
-    </div>
-    <div>
-        <form action="" method="post">
-            {% csrf_token %}
-            {{form.as_p}}
-            <button type="submit">Login</button>
-        </form>
+        <div class="d-flex flex-column">
+            <h1 class="text-center"> Login </h1>
+        </div>
         <div>
-            <p>New to Project Management App? <a href="{% url 'signup' %}">Join now</a></p>
+            <form action="" method="post" class="text-center">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit"class="btn btn-secondary btn-lg" >Login</button>
+            </form>
+            <div>
+                <p class="text-center">New to Project Management App? <a href="{% url 'signup' %}">Join now</a></p>
+            </div>
         </div>
     </div>
 </div>
