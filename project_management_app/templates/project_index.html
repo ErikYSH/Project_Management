@@ -7,9 +7,13 @@
         <h1> Project Page </h1>
         <a href="{% url 'project_create' %}" class="">Create +</a>  
         <form >
-                <input type="search" name="name" placeholder="Project Name"  autocomplete="off" class="form-control rounded">
-                <button type="submit" class="input-group-text border-0">Search</button>
-                <button class="input-group-text border-0"><a href="{% url 'project_index' %}">Clear Search</a></button>
+            <div class="input-group">
+                <input type="search" name="name" placeholder="Project Name" class="form-control" autocomplete="off" >
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-outline-secondary" >Search</button>
+                </div>
+                <button class="btn btn-outline-secondary"><a href="{% url 'project_index' %}">Clear Search</a></button>
+            </div>
         </form>
     </div>
     <div>
