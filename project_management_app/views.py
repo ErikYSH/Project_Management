@@ -10,6 +10,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib import messages
+from .forms import TeamForm
 
 # Create your views here.
 
@@ -134,7 +135,11 @@ def team_show(request, team_id):
 
 class Team_Create(CreateView):
     model = Team
-    fields = ['name', 'title','email', 'user']
+    initial_data = {
+        'user': request.user,
+    }
+    form_class = TeamForm(initial=initial_data)
+    # fields = ['name', 'title','email', 'user']
     template_name = "team_create.html"
     success_url = '/teams'
 
