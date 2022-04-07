@@ -118,13 +118,14 @@ class Team_Index(TemplateView):
         context = super().get_context_data(**kwargs)
         name = self.request.GET.get('name')
         user = self.request.user
+        print(user)
         project = Project.objects.filter(user=user.id)
-        # teams = Team.objects.filter(user=user.id)
-        # print(teams)
+        teams = Team.objects.filter(user=user.id)
+        print(teams)
         if name != None: 
-            context['teams'] = Team.objects.filter(name_icontains=name) 
+            context['teams'] = teams.filter(name__icontains=name) 
         else: 
-            context['teams'] = Team.objects.all
+            context['teams'] = teams
         return context
 
 def team_show(request, team_id):
@@ -133,15 +134,15 @@ def team_show(request, team_id):
 
 class Team_Create(CreateView):
     model = Team
-    fields = "__all__"
+    fields = ['name', 'title','email', 'user']
     template_name = "team_create.html"
     success_url = '/teams'
 
-    # def form_valid(self,form):
-    #     self.object = form.save(commit=False)
-    #     self.object.user = self.request.user
-    #     self.object.save()
-    #     return HttpResponseRedirect('/teams')
+    def form_valid(self,form):
+        self.object = form.save(commit=False)
+        self.object.user = self.request.user
+        self.object.save()
+        return HttpResponseRedirect('/teams')
         
 
 class Team_Update(UpdateView):
