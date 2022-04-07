@@ -30,18 +30,18 @@
                 </thead>
                 <tbody>
                     {% for project in projects %}
-                    {% if project.status != "Complete" %}
-                    <tr>
-                        {% for team in project.team.all %}
-                        <td>{{team.name}}</td>
-                        {% endfor%}
-                        <td><a href="{% url 'project_show' project.id %}">{{project.name}}</a></td>
-                        <td>{{project.start_date}}</td>
-                        <td>{{project.end_date}}</td>
-                        <td>{{project.status}}</td>
-                    </tr>
-                    {% else %}
-                    {% endif %}
+                            {% if project.status != "Complete" %}
+                        <tr>
+                            {% for team in project.team.all %}
+                            <td>{{team.name}}</td>
+                            {% endfor%}
+                            <td><a href="{% url 'project_show' project.id %}">{{project.name}}</a></td>
+                            <td>{{project.start_date}}</td>
+                            <td>{{project.end_date}}</td>
+                            <td>{{project.status}}</td>
+                        </tr>
+                            {% else %}
+                            {% endif %}
                     {% endfor %}
                 </tbody>
             </table>    

@@ -26,11 +26,14 @@ class Project_Index(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         name = self.request.GET.get('name')
+        user = self.request.user
+        projects = Project.objects.filter(user=user.id)
         if name != None: 
-            context['projects'] = Project.objects.filter(name__icontains=name) 
+            context['projects'] = projects.filter(name__icontains=name) 
         else: 
-            context['projects'] = Project.objects.all
+            context['projects'] = projects
         return context
+    
 
 def project_show(request, project_id):
     project = Project.objects.get(id=project_id)
@@ -114,6 +117,10 @@ class Team_Index(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         name = self.request.GET.get('name')
+        user = self.request.user
+        project = Project.objects.filter(user=user.id)
+        # teams = Team.objects.filter(user=user.id)
+        # print(teams)
         if name != None: 
             context['teams'] = Team.objects.filter(name_icontains=name) 
         else: 

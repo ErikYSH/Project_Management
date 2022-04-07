@@ -1,13 +1,15 @@
-from secrets import choice
+from tkinter import CASCADE
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
-
 class Team(models.Model):
     name = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
     title = models.CharField(max_length=50)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+
 
     def __str__(self):
         return self.name
