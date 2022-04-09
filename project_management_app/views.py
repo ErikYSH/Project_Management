@@ -113,7 +113,7 @@ def signup_view(request):
 
 
 #### TEAM FUNCTION
-class Team_Index(TemplateView):
+# class Team_Index(TemplateView):
     template_name = 'team_index.html'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -128,6 +128,30 @@ class Team_Index(TemplateView):
         else: 
             context['teams'] = teams
         return context
+
+def Team_Index(request):
+    teams = Team.objects.all()
+    team_count = teams.count()
+
+
+    if request.method == 'POST':
+        form = TeamForm(request.POST)
+        if form.is_valid():
+            team = form.save(commit=False)
+            team.user = request.user
+            team.save()
+            return HttpResponseRedirect('/teams')
+    else:
+        form = TeamForm()
+    context = {
+        'teams': teams,            
+        'team_count': team_count,
+        'form':form,
+    }
+    print(context)
+    return render(request, 'team_index.html', context)
+
+
 
 def team_show(request, team_id):
     team = Team.objects.get(id=team_id)
