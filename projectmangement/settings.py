@@ -100,7 +100,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'projectmangement.wsgi.application'
+WSGI_APPLICATION = 'projectmanagement.wsgi.application'
 
 
 # Database
