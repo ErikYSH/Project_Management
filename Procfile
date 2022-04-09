@@ -1,2 +1,2 @@
-web: gunicorn projectmanagement.wsgi:application --log-file - --log-level debug
+web: gunicorn projectmangement.wsgi:application --log-file - --log-level debug
 release: python manage.py migrate
