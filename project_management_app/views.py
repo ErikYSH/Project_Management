@@ -133,21 +133,36 @@ def team_show(request, team_id):
     team = Team.objects.get(id=team_id)
     return render(request, 'team_show.html', {'team':team})
 
-class Team_Create(CreateView):
-    model = Team
-    initial_data = {
-        'user': request.user,
-    }
-    form_class = TeamForm(initial=initial_data)
-    # fields = ['name', 'title','email', 'user']
-    template_name = "team_create.html"
-    success_url = '/teams'
 
-    def form_valid(self,form):
-        self.object = form.save(commit=False)
-        self.object.user = self.request.user
-        self.object.save()
-        return HttpResponseRedirect('/teams')
+def Team_Create(request):
+    model = Team
+    if request.method == 'POST':
+        form = TeamForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            title = form.cleaned_data['title']
+            email = form.cleaned_data['email']
+            user = form.cleaned_data['user']
+            print(user)
+            form.save()
+            return HttpResponseRedirect('/teams')
+
+    form = TeamForm()
+    return render (request, 'team_create.html', {'form':form})
+
+
+
+# class Team_Create(CreateView):
+    # model = Team
+    # # fields = ['name', 'title','email', 'user']
+    # template_name = "team_create.html"
+    # success_url = '/teams'
+
+    # def form_valid(self,form):
+    #     self.object = form.save(commit=False)
+    #     self.object.user = self.request.user
+    #     self.object.save()
+    #     return HttpResponseRedirect('/teams')
         
 
 class Team_Update(UpdateView):
