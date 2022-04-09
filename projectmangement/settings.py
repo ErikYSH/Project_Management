@@ -18,7 +18,7 @@ import psycopg2
 import dj_database_url
 import os
 
-DATABASE_URL = os.environ['DATABASE_URL']
+DATABASE_URL = os.environ.get('DATABASE_URL')
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 # If the host name starts with 'live', DJANGO_HOST = "production"
@@ -52,7 +52,9 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 # DEBUG = True
 
 ALLOWED_HOSTS = [
-    'projectmanagementapps.herokuapp.com'
+    'projectmanagementapps.herokuapp.com',
+    'localhost',
+    '127.0.0.1'
 ]
 
 
