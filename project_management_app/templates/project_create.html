@@ -1,7 +1,7 @@
 {% extends 'base.html' %} 
 
 {% block content %}
-<div class="container">
+<div class="container ms-3">
   <div>
     <h1>Create Project Page</h1>
   </div>
@@ -9,24 +9,9 @@
     <form action="" method="post">
         {% csrf_token %} 
         {{form.as_p}}
+       
         <button type="submit">Create Project</button>
     </form>
-
-    <!-- Modal -->
-    <div class="modal fade" {% block modal-id %} id="addProjectModal" {% endblock modal-id %} tabindex="-1" aria-labelledby="addProjectModalLabel" aria-hidden="true" >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h6 class="modal-title" id="addProjectModalLabel">{% block modal-title %}Create Project {% endblock modal-title %}</h6>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-           
-          </div>
-         
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 

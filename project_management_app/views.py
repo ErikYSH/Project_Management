@@ -1,5 +1,5 @@
 from django.views.generic.base import TemplateView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from .models import Project, Team
 from django.contrib.auth.models import User
 from django.shortcuts import render
@@ -10,7 +10,8 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib import messages
-from .forms import TeamForm
+from .forms import TeamForm, ProjectForm
+from django.contrib.admin.widgets import AdminDateWidget
 
 # Create your views here.
 
@@ -40,17 +41,32 @@ def project_show(request, project_id):
     project = Project.objects.get(id=project_id)
     return render(request, 'project_show.html', {'project':project})
 
-class Project_Create(CreateView):
-    model = Project
-    fields = ['name', 'description', 'start_date', 'end_date' ,'status','user','team']
-    template_name = "project_create.html"
-    success_url = '/projects'
+def Project_Create(request):
+    if request.method == "POST":
+        form = ProjectForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            description = form.cleaned_data['description']
+            start_date = form.cleaned_data['start_date']
+            # print("Valid")
+            form.save()
+            return HttpResponseRedirect('/projects')
+        
+    
+    form = ProjectForm()
+    return render(request, 'project_create.html', {'form':form})
 
-    def form_valid(self,form):
-        self.object = form.save(commit=False)
-        self.object.user = self.request.user
-        self.object.save()
-        return HttpResponseRedirect('/projects')
+# class Project_Create(CreateView):
+#     model = Project
+#     fields = ['name', 'description', 'start_date', 'end_date' ,'status','user','team']
+#     template_name = "project_create.html"
+#     success_url = '/projects'
+
+#     def form_valid(self,form):
+#         self.object = form.save(commit=False)
+#         self.object.user = self.request.user
+#         self.object.save()
+#         return HttpResponseRedirect('/projects')
         
 class Project_Update(UpdateView):
     model = Project
@@ -133,13 +149,12 @@ def Team_Index(request):
     teams = Team.objects.all()
     team_count = teams.count()
 
-
     if request.method == 'POST':
         form = TeamForm(request.POST)
         if form.is_valid():
-            team = form.save(commit=False)
-            team.user = request.user
-            team.save()
+            teams = form.save(commit=False)
+            teams.user = request.user
+            teams.save()
             return HttpResponseRedirect('/teams')
     else:
         form = TeamForm()
@@ -150,7 +165,6 @@ def Team_Index(request):
     }
     print(context)
     return render(request, 'team_index.html', context)
-
 
 
 def team_show(request, team_id):
@@ -173,8 +187,6 @@ def Team_Create(request):
 
     form = TeamForm()
     return render (request, 'team_create.html', {'form':form})
-
-
 
 # class Team_Create(CreateView):
     # model = Team
