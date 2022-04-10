@@ -5,15 +5,14 @@
     list-style: none;
     text-decoration: none;
     font-family: 'Josefin Sans', sans-serif;
-
 }
 body{
     overflow: hidden;
 }
 
-.wrapper{
+/* .wrapper{
     display: flex;
-    position: relative;
+    position: relative; 
 }
 
 .wrapper .sidebar{
@@ -40,9 +39,64 @@ body{
 }
 .wrapper .sidebar ul li:hover a{
     color:#fff
+} */
+
+
+/* NEW NAVBAR LOOK  */
+
+.wrapper {
+    width: 7rem;
+    height: 100vh;
+    position: fixed;
+    background-color: #4b4276;
+    align-items: center;
+    transition: width 200ms ease;
 }
 
+.navbar-nav {
+    list-style:none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-item {
+    width: 100%;
+}
+
+.nav-item:last-child{
+    margin-top: auto;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    color: white;
+    text-decoration: none;
+}
+
+.link-text {
+    display: none;
+    margin-left: 1rem;
+    color:white;
+}
+
+.wrapper:hover {
+    width: 16rem;
+}
+.navbar:hover .link-text {
+    display: block;
+}
+
+
+/* MAIN CONTENT CSS */
+
 .main_content {
+    margin-left: 7rem;
     max-width: 179.5vh;
     height: 100vh;
     margin-left: 200px;
