@@ -85,6 +85,12 @@ body{
     color:white;
 }
 
+.nav-link svg {
+    width: 2rem;
+    min-width: 2rem;
+    margin: 0 1.5rem;
+  }
+
 .wrapper:hover {
     width: 16rem;
 }
