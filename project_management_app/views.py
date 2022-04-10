@@ -45,10 +45,6 @@ def Project_Create(request):
     if request.method == "POST":
         form = ProjectForm(request.POST)
         if form.is_valid():
-            name = form.cleaned_data['name']
-            description = form.cleaned_data['description']
-            start_date = form.cleaned_data['start_date']
-            # print("Valid")
             form.save()
             return HttpResponseRedirect('/projects')
         

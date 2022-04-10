@@ -33,11 +33,7 @@
                             {% if project.status != "Complete" %}
                         <tr>
                             {% for team in project.team.all %}
-                                {% if team.length > 1 %}
-                                    <td>Multiple</td>
-                                {% else %}
-                                    <td>{{team.name}}</td>
-                                {% endif %}
+                                <td class="d-flex">{{team.name}}</td>
                             {% endfor%}
                             <td><a href="{% url 'project_show' project.id %}">{{project.name}}</a></td>
                             <td>{{project.start_date}}</td>

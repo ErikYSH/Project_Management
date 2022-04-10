@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container login ms-3 justify-content-center" >
-    <div class="login_page">
+    <div class="login_page" style="background-color: aquamarine; border-radius: 3em; box-shadow: 10px 10px 25px black; border: .05px solid white;padding: 20px;">
         <div class="d-flex flex-column">
             <h1 class="text-center"> Login </h1>
         </div>
@@ -10,19 +10,20 @@
             <form action="" method="post" class="text-center">
                 {% csrf_token %}
            
-                <div class="form-group m-4 shadow-none bg-transparent border-0">
-                    <input type="text" class="form-control" name="username" style="background-color:transparent; border: none;" placeholder="Enter username">
+                <div class=" form__group field m-4 ">
+                    <input type="text" class="form__field" name="username" id='name'required style="background-color:transparent; border: none;" placeholder="Name" >
+                    <label for="name" class="form__label">Name</label>
                 </div>
-                <div class="form-group m-4">  
-                    <input type="password" class="form-control" name="password" style="background-color:transparent; border: none;" placeholder="Password">
+                <div class="form__group field m-4">  
+                    <input type="password" class="form__field" name="password" id='password'required style="background-color:transparent; border: none;" placeholder="Password">
+                    <label for="password" class="form__label">Password</label>
                 </div>
                 <button type="submit"class="btn btn-secondary btn-lg" >Login</button>
             </form>
-            <div>
+            <div class="m-1">
                 <p class="text-center">New to Project Management App? <a href="{% url 'signup' %}">Join now</a></p>
             </div>
         </div>
     </div>
 </div>
-
 {% endblock %}
