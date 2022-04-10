@@ -1,16 +1,18 @@
 {% extends 'base.html' %} 
 
+{% block title %}
+Home
+{% endblock %}
+
 {% block content %}
-<div class="container ms-3" style="max-width: 150vh">
-    <div class="home_page">
+<div class="container d-flex justify-content-center" style="border: 1px solid;">
+    <div class="container-box text-center" style="border: 1px solid red;">
         <div>
             <h1>Project Management App</h1>
         </div>
-        <div>
+        <div class="pt-5" style="border: 1px solid;">
             <button><a href="{% url 'login' %}">Login</a></button>
             <button><a href="{% url 'signup' %}">Sign Up</a></button>
-            
-     
         </div>
     </div>
 </div>
