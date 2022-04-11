@@ -144,6 +144,9 @@ body {
   /* align-items: center; */
   justify-content: center;
 }
+.icon {
+    margin-top: auto;
+  }
 .form__group {
   position: relative;
   padding: 15px 0 0;
