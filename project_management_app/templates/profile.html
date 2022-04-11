@@ -1,7 +1,50 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{{ username|title }}'s Profile Page </h1>
+<div class="container">
+    <div class="container-box">
+        <h1>Welcom {{ username|title }}</h1>
+        <div class="introduction">
+            <h2>Welcome to Project Management App!</h2>
+            <p>Welcome to the internet's only all-in-one workspace for essential work tools</p>
+        </div>
+        <div class="steps">
+            <div class="step-1">
+                <h3> 1) Create a Project </h3>
+                <p>You will required to start a project in order to use this app.</p>
+                <p>The fields includes: </p>
+                <ol>
+                    <li>1 - Name</li>
+                    <li>2 - Description</li>
+                    <li>3 - Start Date</li>
+                    <li>4 - End Date</li>
+                    <li>5 - Status</li>
+                    <li>6 - User</li>
+                    <li>7 - Team Member</li>
+                </ol>
+            </div>
+            <div class="step-2">
+                <h3>2) Create Team Member</h3>
+                <p>Once you have a project you can asigning Team Member to it</p>
+                <p>Make sure to create a account so Team Member get notified the jobs</p>
+                <ol>
+                    <li>1 - Name</li>
+                    <li>2 - Email</li>
+                    <li>3 - Title</li>
+                </ol>
+            </div>
+            <div class="step-3">
+                <h3>3) Dashboard</h3>
+                <p>This page is a summary of the how many Project and Team Member</p>
+            </div>
+        </div>
+        <div class="ending">
+            <h2>You Got All You Need to Start a Project</h2>
+            <p>Now GO have fun and start assigning</p>
+            <h1><strong>START CREATING MAGIC</strong></h1>
+        </div>
+    </div>
+</div>
 
 
 {% endblock %}
