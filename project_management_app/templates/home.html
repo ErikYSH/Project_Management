@@ -5,14 +5,14 @@ Home
 {% endblock %}
 
 {% block content %}
-<div class="container d-flex justify-content-center" style="border: 1px solid;">
-    <div class="container-box text-center" style="border: 1px solid red;">
+<div class="container d-flex justify-content-center" style="background-color: #a1ddc9; border-radius: 3em; box-shadow: 10px 10px 25px black; border: .05px solid white;padding: 20px;">
+    <div class="container-box text-center" >
         <div>
             <h1>Project Management App</h1>
         </div>
-        <div class="pt-5" style="border: 1px solid;">
-            <button><a href="{% url 'login' %}">Login</a></button>
-            <button><a href="{% url 'signup' %}">Sign Up</a></button>
+        <div class="p-5">
+            <a class="bn5 text-decoration-none" style="margin-right: 10px;" href="{% url 'login' %}">Login</a>
+            <a class="bn5 text-decoration-none" style="margin-left: 10px;" href="{% url 'signup' %}">Sign Up</a>
         </div>
     </div>
 </div>

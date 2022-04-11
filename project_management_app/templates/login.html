@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container login ms-3 justify-content-center" >
-    <div class="login_page" style="background-color: aquamarine; border-radius: 3em; box-shadow: 10px 10px 25px black; border: .05px solid white;padding: 20px;">
+<div class="container login " >
+    <div class="container-box" style="background-color: #a1ddc9; border-radius: 3em; box-shadow: 10px 10px 25px black; border: .05px solid white;padding: 20px;">
         <div class="d-flex flex-column">
             <h1 class="text-center"> Login </h1>
         </div>
@@ -20,8 +20,8 @@
                 </div>
                 <button type="submit"class="btn btn-secondary btn-lg" >Login</button>
             </form>
-            <div class="m-1">
-                <p class="text-center">New to Project Management App? <a href="{% url 'signup' %}">Join now</a></p>
+            <div class="mt-4">
+                <p class="text-center">New to Project Management? <a href="{% url 'signup' %}">Join now</a></p>
             </div>
         </div>
     </div>

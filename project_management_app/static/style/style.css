@@ -8,7 +8,7 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Chelsea Market', cursive;
 }
 body {
   overflow: hidden;
@@ -85,7 +85,6 @@ body {
 .link-text {
   display: none;
   margin-left: 1rem;
-  
 }
 
 .nav-link svg {
@@ -100,7 +99,7 @@ body {
 }
 
 .nav-link:hover .link-text {
-    color: white;
+  color: white;
 }
 
 /* MAIN CONTENT CSS */
@@ -110,8 +109,9 @@ body {
   max-width: 179.5vh;
   height: 100vh;
   margin-left: 50px;
-  background-color: aquamarine;
+  background-color: #b5c9c2;
   border: 1px solid brown;
+  background-blend-mode: darken;
 }
 
 .main_content .header {
@@ -139,10 +139,10 @@ body {
 }
 
 .container-box {
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
 }
 .form__group {
   position: relative;
@@ -204,22 +204,102 @@ body {
   box-shadow: none;
 }
 
+/* Home Button */
+
+.bn5 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.bn5:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowingbn5 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowingbn5 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.bn5:active {
+  color: #000;
+  
+}
+
+.bn5:active:after {
+  background: transparent;
+  
+}
+
+.bn5:hover:before {
+  opacity: 1;
+}
+
+.bn5:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #191919;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
 /* Small Screen */
 @media only screen and (max-width: 600px) {
-.wrapper {
+  .wrapper {
     bottom: 0;
     width: 100vw;
     height: 5rem;
-}
-.navbar-nav{
+  }
+  .navbar-nav {
     flex-direction: row;
-}
-.nav-link {
+  }
+  .nav-link {
     justify-content: center;
-}
-main {
+  }
+  main {
     margin: 0;
-}
+  }
 }
 
 /* Large Screen */
