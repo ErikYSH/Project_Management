@@ -125,13 +125,15 @@
     </nav>
 
     <section class="main_content">
-      <div class="header" style="border: 1px solid white;">
-        <div class="header-box d-flex justify-content-center" style="border: 1px solid white;">
-            <h1>LOGO Holder</h1>
-            <div style="border: 1px solid white; border-radius: 3rem;height: 50px; width: 50px; margin: auto;">
-                <li class="icon">
-                    <a href="{% url 'profile' user %}">Help</a>
-                </li>
+      <div class="header" style="">
+        <div class="header-box" style=" display: flex; justify-content: space-between;">
+            <div style="margin-left: 40%">
+                <h1>LOGO Holder</h1>
+            </div>
+            <div style="border: 1px solid white; height: 50px; width: 50px;; display: flex; justify-content: center; align-items: center; border-radius: 3rem;">
+                <!-- <li class="icon"> -->
+                    <a style="text-decoration: none;" href="{% url 'profile' user %}">Help</a>
+                <!-- </li> -->
             </div>
         </div>
       </div>

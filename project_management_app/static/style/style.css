@@ -11,7 +11,7 @@
   font-family: 'Chelsea Market', cursive;
 }
 body {
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 /* .wrapper{
@@ -122,6 +122,9 @@ body {
 .main_content .info {
   margin: 20px;
   width: 100%;
+}
+.header:last-child{
+    margin-top: auto;
 }
 
 .login {
