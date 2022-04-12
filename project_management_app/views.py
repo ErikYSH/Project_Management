@@ -21,12 +21,6 @@ class Home(TemplateView):
     template_name = 'home.html'
 
 #### PROJECT FUNCTION
-# def Dashboard(request):
-#     project_count
-
-
-
-
 class Dashboard(TemplateView):
     template_name ='dashboard.html'
     def get_context_data(self, **kwargs):
@@ -169,6 +163,9 @@ def signup_view(request):
 
 def Team_Index(request):
     teams = Team.objects.all()
+    user = request.user
+    teams_login = Team.objects.filter(user=user.id)
+    print(teams_login)
     team_count = teams.count()
 
     if request.method == 'POST':
@@ -181,7 +178,7 @@ def Team_Index(request):
     else:
         form = TeamForm()
     context = {
-        'teams': teams,            
+        'teams': teams_login,            
         'team_count': team_count,
         'form':form,
     }
