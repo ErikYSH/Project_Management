@@ -1,18 +1,21 @@
 {% extends 'base.html' %} 
 
 {% block content %}
-<div class="container">
-  <div>
-    <h1>You are deleting {{project|upper}}</h1>
-    <p>Are you sure?</p>
-  </div>
-  <div>
-    <h1>DANGER ZONE !</h1>
-    <form action="" method="post">
-      {% csrf_token %}
-        <button type="submit">Delete</button>
-      <button><a href="{% url 'project_show' project.id %}">Cancel</a></button>
-    </form>
+<div class="container login text-center">
+  <div class="container-box">
+
+    <div>
+      <h1>You are deleting {{project|upper}}</h1>
+      <p>Are you sure?</p>
+    </div>
+    <div>
+      <h1>DANGER ZONE !</h1>
+      <form action="" method="post">
+        {% csrf_token %}
+        <button class="btn btn-danger m-1" type="submit">Delete</button>
+        <button class="btn btn-success m-1"><a style="text-decoration: none; color: white;" href="{% url 'project_show' project.id %}">Cancel</a></button>
+      </form>
+    </div>
   </div>
 </div>
 
