@@ -11,6 +11,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib import messages
 from .forms import TeamForm, ProjectForm
+from django.db.models import Count
 from django.contrib.admin.widgets import AdminDateWidget
 
 # Create your views here.
@@ -20,8 +21,32 @@ class Home(TemplateView):
     template_name = 'home.html'
 
 #### PROJECT FUNCTION
+# def Dashboard(request):
+#     project_count
+
+
+
+
 class Dashboard(TemplateView):
     template_name ='dashboard.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        name = self.request.GET.get('name')
+        user = self.request.user
+        projects = Project.objects.filter(user=user.id)
+        print(len(projects))
+        project_count = projects.count()
+        print(project_count)
+        teams = Team.objects.filter(user=user.id)
+        team_count = teams.count()
+        if name != None: 
+            # context['projects_count'] = project_count
+            context = {'projects_count':project_count, 'team_count':team_count}
+        else: 
+            # context['projects_count'] = project_count
+            context = {'projects_count':project_count, 'team_count':team_count}
+        return context
+
 
 class Project_Index(TemplateView):
     template_name = 'project_index.html'

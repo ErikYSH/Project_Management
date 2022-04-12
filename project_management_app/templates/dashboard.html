@@ -3,7 +3,19 @@
 {% block content %}
 <div class="container">
     <div class="container-box">
-        <h1>Project Dashboard</h1>
+        <div style="padding-top: 5vh;">
+            <h1>Project Dashboard</h1>
+            <div >
+                <div class="project-count" style="background-color: #a1ddc9; border-radius: 3em; box-shadow: 10px 10px 25px black; border: .05px solid white;padding: 20px;">
+                     <h1>Project Count</h1>
+                    <h1>{{projects_count}}</h1>
+                </div>
+                <div class="team-count" style="background-color: #a1ddc9; border-radius: 3em; box-shadow: 10px 10px 25px black; border: .05px solid white;padding: 20px;"> 
+                    <h1>Team Count</h1>
+                    <h1>{{team_count}}</h1>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
