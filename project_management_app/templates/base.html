@@ -130,11 +130,15 @@
             <div style="margin-left: 40%">
                 <h1>LOGO Holder</h1>
             </div>
+            {% if user.is_authenticated %}
             <div style="border: 1px solid white; height: 50px; width: 50px;; display: flex; justify-content: center; align-items: center; border-radius: 3rem;">
                 <!-- <li class="icon"> -->
                     <a style="text-decoration: none;" href="{% url 'profile' user %}">Help</a>
                 <!-- </li> -->
             </div>
+            {% else %}
+            <div></div>
+            {% endif %}
         </div>
       </div>
       {% if messages %} 

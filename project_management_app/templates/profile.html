@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container">
     <div class="container-box">
-        <h1>Welcom {{ username|title }}</h1>
+        <h1>Welcome {{ username|title }}</h1>
         <div class="introduction">
             <h2>Welcome to Project Management App!</h2>
             <p>Welcome to the internet's only all-in-one workspace for essential work tools</p>
@@ -39,9 +39,9 @@
             </div>
         </div>
         <div class="ending">
-            <h2>You Got All You Need to Start a Project</h2>
+            <h3>You Got All You Need to Start a Project</h3>
             <p>Now GO have fun and start assigning</p>
-            <h1><strong>START CREATING MAGIC</strong></h1>
+            <h1><strong>Start YOUR <a href="{% url 'project_create' %}">First Project</a></strong></h1>
         </div>
     </div>
 </div>
