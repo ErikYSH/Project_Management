@@ -1,26 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container ms-3">
+<div class="container login">
+    <div class="container-box" style="width:70vh; background-color: #a1ddc9; border-radius: 3em; box-shadow: 10px 5px 15px black; border: .5px solid white; margin: 10px; padding: 40px;" >
+  
     <div>
-        <h1> {{team}} Page </h1>
+        <h1> {{team}} Info </h1>
     </div>
-    <div>
-        <h2>{{team.name}}</h2>
-        <h2>{{team.email}}</h2>
-        <h2>{{team.title}}</h2>
+    <div style="margin-top: 20px;">
+        <h2>- Name: {{team.name}}</h2>
+        <h2>- Email: {{team.email}}</h2>
+        <h2>- Title: {{team.title}}</h2>
+        <h2>- Team Member's Project:</h2>
         {% for project in team.project_set.all %}
-            <h2>{{ project.name }}</h2>
+            <ul>
+                <li>{{ project.name }}</li>
+            </ul>
+            
         {% endfor %}
     </div>
     <div>
-        <button>
-            <a href="{% url 'team_update' team.id %}">Edit</a>
+        <button class="btn btn-success m-1" >
+            <a  class="text-black text-decoration-none" href="{% url 'team_update' team.id %}">Edit</a>
         </button>
-        <button>
-            <a href="{% url 'team_delete' team.id %}">Delete</a>
+        <button class="btn btn-danger m-1 "> <a class="text-black text-decoration-none" href="{% url 'team_delete' team.id %}">Delete</a>
         </button>
     </div>
+</div>
 </div>
 
 {% endblock %}
