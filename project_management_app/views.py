@@ -92,6 +92,7 @@ def Project_Create(request):
 class Project_Update(UpdateView):
     model = Project
     fields = ['name', 'description', 'start_date', 'end_date' ,'status','team']
+    class_form = ProjectForm
     template_name = 'project_update.html'
     success_url = '/projects'
 

@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container login " >
-    <div class="container-box" style="background-color: #a1ddc9; border-radius: 3em; box-shadow: 10px 10px 25px black; border: .05px solid white;padding: 20px;">
+    <div class="container-box" >
         <div class="d-flex flex-column">
             <h1 class="text-center"> Login </h1>
         </div>
@@ -11,11 +11,11 @@
                 {% csrf_token %}
            
                 <div class=" form__group field m-4">
-                    <input type="text" class="form__field" name="username" id='name'required style="background-color:transparent; border: none;" placeholder="Name" >
+                    <input type="text" class="form__field" name="username" id='name'required  placeholder="Name" >
                     <label for="name" class="form__label">Name</label>
                 </div>
                 <div class="form__group field m-4">  
-                    <input type="password" class="form__field" name="password" id='password'required style="background-color:transparent; border: none;" placeholder="Password">
+                    <input type="password" class="form__field" name="password" id='password'required  placeholder="Password">
                     <label for="password" class="form__label">Password</label>
                 </div>
                 <button type="submit"class="btn btn-secondary btn-lg" >Login</button>

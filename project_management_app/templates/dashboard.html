@@ -3,17 +3,21 @@
 {% block content %}
 <div class="container">
     <div class="container-box">
-        <div style="padding-top: 5vh;">
-            <h1>Project Dashboard</h1>
+        <div style="padding-top: 5vh; text-align: center;">
+            <h1><strong>Project Dashboard</strong></h1>
             <div style="display:flex; flex-direction: row;justify-content: center; text-align: center; padding-top: 50px;">
+                <a href="{% url 'project_index' %}" class="text-decoration-none" style="color: black;" >
                 <div class="project-count" style="background-color: #a1ddc9; border-radius: 3em; box-shadow: 10px 10px 25px black; border: .05px solid white;  margin: 30px; height: 400px; width: 350px; padding: 0px;">
                      <h1 style="padding-top: 45%;">Project Count</h1>
                     <h1>{{projects_count}}</h1>
                 </div>
+                </a>
+                <a href="{% url 'team_index' %}" class="text-decoration-none" style="color: black;" >
                 <div class="team-count" style="background-color: #a1ddc9; border-radius: 3em; box-shadow: 10px 10px 25px black;  border: .05px solid white;margin: 30px; height: 400px; width: 350px;"> 
                     <h1 style="padding-top: 45%;">Team Count</h1>
                     <h1>{{team_count}}</h1>
                 </div>
+            </a>
             </div>
         </div>
     </div>

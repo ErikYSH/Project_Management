@@ -1,18 +1,61 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
-    <div>
+<div class="container login" style="max-width: 150vh; height:80vh;">
+    <div class="d-flex flex-column align-content-center justify-content-center" style="width:70vh; background-color: #a1ddc9; border-radius: 3em; box-shadow: 10px 5px 15px black; border: .5px solid white; margin: 10px; padding-top: 10px; padding-bottom: 15px;">
+      <div class="text-center">
         <h1> Update Project Page </h1>
     </div>
-    <div>
-        <form action="" method="post">
-            {% csrf_token %}
-            {{form.as_p}}
-            <button type="submit">Update Project</button>
-            <button><a href="{% url 'project_show' project.id %}">Cancel</a></button>
+    
+    <div >
+        <form style="margin: 2px; padding: 2px;" class="w-80 " action="" method="post">
+            {% csrf_token %} 
+            <div class="form-group row m-1 ">
+              <label class="col-sm-2 col-form-label">Name*</label>
+              <div class="col-sm-10">
+                {{form.name}}
+              </div>
+            </div>
+            <div class="form-group row m-1 ">
+              <label class="col-sm-2 col-form-label mt-2">Description</label>
+              <div class="col-sm-10">
+                {{form.description}}
+              </div>
+            </div>
+            <div class="form-group row  m-1">
+              <label class="col-sm-2 col-form-label">Start Date</label>
+              <div class="col-sm-10">
+              {{form.start_date}}
+              </div>
+            </div>
+            <div class="form-group row m-1">
+              <label class="col-sm-2 col-form-label">End Date</label>
+              <div class="col-sm-10">
+              {{form.end_date}}
+              </div>
+            </div>
+            <div class="form-group row m-1">
+              <label class="col-sm-2 col-form-label">Status</label>
+              <div class="col-sm-10">
+              {{form.status}}
+              </div>
+            </div>
+            <div class="form-group row m-1">
+              <label class="col-sm-2 col-form-label">User</label>
+              <div class="col-sm-10">
+              {{form.user}}
+              </div>
+            </div>
+            <div class=" row m-1 ">
+              <label class="col-sm-2 col-form-label">Team(select)</label>
+              <div class="col-sm-10 w-50 multiple ">
+              {{form.team}}
+              </div>
+            </div>
+            <button type="submit" class="btn btn-success m-1">Update Project</button>
         </form>
-    </div>
+      </div>
+</div>
 </div>
 
 {% endblock %}

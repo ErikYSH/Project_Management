@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
+<div class="container login" >
+    <div class="container-box" >
     <div>
         <h1> Update Team Page </h1>
     </div>
@@ -9,9 +10,10 @@
         <form action="" method="post">
             {% csrf_token %}
             {{form.as_p}}
-            <button type="submit">Update Team Member</button>
-            <button><a href="{% url 'team_show' team.id %}">Cancel</a></button>
+            <button class="btn btn-success m-1" type="submit">Update Team Member</button>
+            <button class="btn btn-danger m-1 "><a class="text-black text-decoration-none" href="{% url 'team_show' team.id %}">Cancel</a></button>
         </form>
+    </div>
     </div>
 </div>
 
