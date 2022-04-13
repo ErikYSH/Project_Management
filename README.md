@@ -1,10 +1,10 @@
 # Project Tracker
 
 ## Table of Content (TBD)
-[User](#User Stories (As a User))
-[ERD](#ERD)
-[WireFrame](#WireFrame)
-[Technology](#Technology)
+- [User](#User)
+- [ERD](#ERD)
+- [WireFrame](#WireFrame)
+- [Technology](#Technology)
 
 
 ## About
