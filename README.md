@@ -1,14 +1,11 @@
 # Project Tracker
 
 ## Table of Content (TBD)
-    * [ERD](#ERD)
+    [User Stories (As a User)](#User Stories (As a User))
+    [ERD](#ERD)
 
 ## About
-The intend of this project is to effectly track project. 
-1. Project Management app 
-- Main user create the app 
-- Project has tasks 
-- task has categories
+The purpose of this project is keep track the day to day project and effectively assign the project to your team member. You will be the project manager and you get to decide when it will be due 
 
 
 ## User Stories (As a User)
@@ -38,7 +35,7 @@ The intend of this project is to effectly track project.
 ![Alt text](/ImageFile/WireFrame_3.png "Wire Frame_3")
 
 ## Technology Used 
-Python| Django| JavaScript | HTML | PostgreSQL | ... |
+Python| Django| JavaScript | HTML | PostgreSQL | Bootstrap | CSS |
 
 
 
