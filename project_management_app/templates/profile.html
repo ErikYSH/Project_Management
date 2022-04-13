@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
+<div class="container login mt-5">
     <div class="container-box">
         <h1>Welcome {{ username|title }}</h1>
-        <div class="introduction">
+        <div class="introduction mt-4">
             <h2>Welcome to Project Management App!</h2>
             <p>Welcome to the internet's only all-in-one workspace for essential work tools</p>
         </div>
@@ -41,7 +41,7 @@
         <div class="ending">
             <h3>You Got All You Need to Start a Project</h3>
             <p>Now GO have fun and start assigning</p>
-            <h1><strong>Start YOUR <a href="{% url 'project_create' %}">First Project</a></strong></h1>
+            <h1><strong>Start YOUR <a class="text-decoration-none" href="{% url 'project_create' %}">First Project</a></strong></h1>
         </div>
     </div>
 </div>
