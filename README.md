@@ -1,8 +1,11 @@
 # Project Tracker
 
 ## Table of Content (TBD)
-[User Stories (As a User)](#User Stories (As a User))
+[User](#User Stories (As a User))
 [ERD](#ERD)
+[WireFrame](#WireFrame)
+[Technology](#Technology)
+
 
 ## About
 The purpose of this project is keep track the day to day project and effectively assign the project to your team member. You will be the project manager and you get to decide when it will be due 
