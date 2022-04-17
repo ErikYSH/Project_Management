@@ -1,6 +1,6 @@
 # Project Tracker
 
-## Table of Content (TBD)
+## Table of Content
 - [User Stories](#User-Stories-(As-a-User))
 - [ERD](#ERD)
 - [WireFrame](#WireFrame)
